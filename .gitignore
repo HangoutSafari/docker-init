@@ -1,0 +1,10 @@
+# ignore everything
+*
+
+# exeptions
+!.gitignore
+!docker-compose-dev.yml
+!docker-compose-prod.yml
+!envConf.txt.example
+!init.sh
+!README.md
