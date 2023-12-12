@@ -55,6 +55,17 @@ services:
       - "3010:3010"
     working_dir: /usr/src/app
     command: bash -c "npm install && npm run dev"
+  animaldetails:
+    container_name: animal-details
+    build: ./backend/animal-details
+    volumes:
+      - ./backend/animal-details:/usr/src/app
+    networks:
+      - mssafari
+    ports:
+      - "3018:3018"
+    working_dir: /usr/src/app
+    command: bash -c "npm install && npm run dev"
 networks:
   mssafari:
     driver: bridge
