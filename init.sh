@@ -66,7 +66,7 @@ clone_or_pull "events-ms" "https://github.com/HangoutSafari/events-ms.git"
 clone_or_pull "users-ms" "https://github.com/HangoutSafari/users-ms.git"
 clone_or_pull "models-ms" "https://github.com/HangoutSafari/models-ms.git"
 clone_or_pull "api-gateway" "https://github.com/HangoutSafari/api-gateway.git"
-
+clone_or_pull "animal-details" "https://github.com/HangoutSafari/animal-details.git"
 
 chmod 777 -R *
 
