@@ -78,6 +78,7 @@ cd ..
 if [[ ! -d "Hangout-Safari" ]]
 then
 git clone https://github.com/HangoutSafari/Hangout-Safari.git
+npm install
 fi
 
 #docker compose up
