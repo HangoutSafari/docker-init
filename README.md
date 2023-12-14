@@ -12,7 +12,7 @@ I highly advise you to use git bash for these commands, and also when you use gi
 	2. init.sh
 	3. docker-compose-dev.yml
 	4. docker-compose-prod-yml
-2. Use the `cp envConfig.txt.example envConfig.txt` command to create a copy of the example file.
+2. Use the `cp envConf.txt.example envConf.txt` command to create a copy of the example file.
 3. Open the newly created file and add the Supabase URL and API key respectively. 
 4. Save the file and close it.
 5. Run the `init.sh` using git bash (`./init.sh`). This will clone all the repositories and add the env files to the microservices, so that we can create connection to the Supabase database. Your folder structure will be like this:
