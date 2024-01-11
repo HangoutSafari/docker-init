@@ -11,7 +11,12 @@ function readInFile() {
     done < "$input"
 }
 
-
+function addAuth(){
+    if [ ! -f "getCurrentSession.js" ]
+        then
+            ./createAuthFile.sh
+        fi
+}
 
 
 function addEnv(){
@@ -73,7 +78,7 @@ chmod 777 -R *
 
 addEnvToAll
 cd ..
-
+addAuth
 
 if [[ ! -d "Hangout-Safari" ]]
 then
@@ -85,3 +90,22 @@ cd ..
 fi
 
 #docker compose up
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
