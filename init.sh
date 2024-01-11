@@ -1,6 +1,7 @@
 #!/bin/sh
 
 envConfig=""
+path="$PWD"
 # Funcitons
 function readInFile() {
     input=$PWD/"envConf.txt"
@@ -14,7 +15,34 @@ function readInFile() {
 function addAuth(){
     if [ ! -f "getCurrentSession.js" ]
         then
-            ./createAuthFile.sh
+           callFileText="export async function getCurrentSession(supabase, req) {
+            const cookies = req.headers.cookie;
+            const access_token = cookies.split('; ')[0].split('=')[1];
+
+            const refresh_token = cookies.split('; ')[1].split('=')[1];
+            const { sessionData, sessionError } = supabase.auth.setSession({
+                access_token,
+                refresh_token,
+            })
+
+            if (sessionError) {
+
+                console.error('session error', sessionError);
+
+                throw sessionError;
+
+            }
+
+            const {
+
+                data: { user },
+
+            } = await supabase.auth.getUser();
+        return supabase;
+}";
+
+echo -e "$callFileText" > getCurrentSession.js 
+
         fi
 }
 
@@ -35,7 +63,13 @@ for folder in ./*; do
         then
             cd "$folder"
                 addEnv
+                addAuth
             cd ..
+        else
+        cd "$folder"
+        cd "code"
+        addAuth
+        cd ../..
         fi
     fi
 done    
@@ -78,7 +112,7 @@ chmod 777 -R *
 
 addEnvToAll
 cd ..
-addAuth
+
 
 if [[ ! -d "Hangout-Safari" ]]
 then
