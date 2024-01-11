@@ -68,6 +68,7 @@ for folder in ./*; do
         else
         cd "$folder"
         cd "code"
+        addEnv
         addAuth
         cd ../..
         fi
